@@ -8,5 +8,8 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
+    "deltalake>=1.6.3",
+    "pandas>=3.0.5",
+    "pyarrow>=25.0.1",
     "python-dotenv>=1.2.3",
 ]
