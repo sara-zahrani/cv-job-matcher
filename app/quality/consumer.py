@@ -14,15 +14,22 @@ from app.ingestion.producer import END_OF_STREAM, TOPIC, load_jobs, produce
 from app.quality.gate import QualityGate
 
 
-async def validate_stream(broker: Broker, gate: QualityGate) -> tuple[list[dict], list[dict]]:
-    """Consume until end-of-stream. Returns (clean, quarantined)."""
+async def validate_stream(
+    broker: Broker, gate: QualityGate
+) -> tuple[list[dict], list[dict], list[dict]]:
+    """Consume until end-of-stream. Returns (clean, quarantined, skipped)."""
     clean: list[dict] = []
     quarantined: list[dict] = []
+    skipped: list[dict] = []  # already in storage from an earlier run
 
     while True:
         job = await broker.consume(TOPIC)
         if job is END_OF_STREAM:
             break
+
+        if gate.already_stored(job):
+            skipped.append(job)
+            continue  # back to the top of the loop, no checks needed
 
         reasons = gate.check(job)
         if reasons:
@@ -31,7 +38,7 @@ async def validate_stream(broker: Broker, gate: QualityGate) -> tuple[list[dict]
         else:
             clean.append(job)
 
-    return clean, quarantined
+    return clean, quarantined, skipped
 
 
 if __name__ == "__main__":
@@ -46,12 +53,12 @@ if __name__ == "__main__":
         # Producer and consumer run at the same time, like the broker demo.
         # gather returns each coroutine's result in order; produce() returns a
         # count we don't need here, so it goes to _.
-        _, (clean, quarantined) = await asyncio.gather(
+        _, (clean, quarantined, skipped) = await asyncio.gather(
             produce(broker, jobs),
             validate_stream(broker, gate),
         )
 
-        print(f"clean: {len(clean)}   quarantined: {len(quarantined)}")
+        print(f"clean: {len(clean)}   quarantined: {len(quarantined)}   skipped: {len(skipped)}")
         for item in quarantined:
             print(f"  {item['job'].get('id', '?'):<8} {item['reasons']}")
 

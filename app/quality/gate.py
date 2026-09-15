@@ -49,9 +49,21 @@ class QualityGate:
     """Runs all checks on a posting, remembering what it has already seen
     so it can catch duplicates. One gate per pipeline run."""
 
-    def __init__(self) -> None:
+    def __init__(self, known_ids: set[str] | None = None) -> None:
+        # Ids already in storage. Seeing one of these again is not a data
+        # problem, just a re-run, so they are kept apart from duplicates
+        # found within the source itself.
+        self.known_ids: set[str] = set(known_ids or ())
         self.seen_ids: set[str] = set()
         self.seen_fingerprints: set[str] = set()
+
+    def already_stored(self, job: dict) -> bool:
+        """True if this id came from storage. Still records the fingerprint,
+        so a copy of a stored posting under a new id is caught later."""
+        if job.get("id") in self.known_ids:
+            self.seen_fingerprints.add(fingerprint(job))
+            return True
+        return False
 
     def check_duplicates(self, job: dict) -> list[str]:
         reasons = []

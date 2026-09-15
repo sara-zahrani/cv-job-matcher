@@ -28,6 +28,14 @@ def write_jobs(jobs: list[dict], path: Path = TABLE_PATH) -> int:
     return DeltaTable(str(path)).version()
 
 
+def existing_ids(path: Path = TABLE_PATH) -> set[str]:
+    """Ids already stored, so a re-run can skip them. Empty if no table yet."""
+    if not DeltaTable.is_deltatable(str(path)):
+        return set()
+    df = DeltaTable(str(path)).to_pandas(columns=["id"])
+    return set(df["id"])
+
+
 def read_jobs(path: Path = TABLE_PATH, version: int | None = None) -> pd.DataFrame:
     """Read the table. Pass a version to read it as it was at that point."""
     table = DeltaTable(str(path), version=version)
