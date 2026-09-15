@@ -1,0 +1,812 @@
+[
+  {
+    "id": "job-001",
+    "title": "Data Engineer",
+    "company": "Aramco Digital",
+    "location": "Dammam, SA",
+    "description": "Build and maintain batch and streaming pipelines that move data from product databases into our lakehouse. You will own ingestion, transformation, and data quality checks, and work with analysts to model tables for reporting.",
+    "skills": [
+      "python",
+      "sql",
+      "airflow",
+      "spark",
+      "delta lake",
+      "aws"
+    ],
+    "posted_at": "2026-07-13",
+    "url": "https://jobs.example.com/001"
+  },
+  {
+    "id": "job-002",
+    "title": "Senior Data Engineer",
+    "company": "stc",
+    "location": "Dubai, AE",
+    "description": "Lead the design of our data platform: Kafka-based event streaming, Delta Lake storage, and dbt transformations. Mentor junior engineers and set standards for data quality, lineage, and observability.",
+    "skills": [
+      "python",
+      "kafka",
+      "spark",
+      "delta lake",
+      "dbt",
+      "kubernetes"
+    ],
+    "posted_at": "2026-07-03",
+    "url": "https://jobs.example.com/002"
+  },
+  {
+    "id": "job-003",
+    "title": "Machine Learning Engineer",
+    "company": "Elm",
+    "location": "Remote (MENA)",
+    "description": "Take models from notebook to production. Build feature pipelines, training jobs, and low-latency inference services. Experience with model monitoring and retraining loops is essential.",
+    "skills": [
+      "python",
+      "pytorch",
+      "mlflow",
+      "docker",
+      "kubernetes",
+      "sql"
+    ],
+    "posted_at": "2026-09-04",
+    "url": "https://jobs.example.com/003"
+  },
+  {
+    "id": "job-004",
+    "title": "AI Engineer (LLM Applications)",
+    "company": "Mozn",
+    "location": "Dammam, SA",
+    "description": "Design and ship LLM-powered features: retrieval-augmented generation over internal documents, evaluation harnesses, and prompt pipelines. You will work with vector databases and embedding models daily.",
+    "skills": [
+      "python",
+      "llm",
+      "rag",
+      "chromadb",
+      "fastapi",
+      "openai api"
+    ],
+    "posted_at": "2026-09-02",
+    "url": "https://jobs.example.com/004"
+  },
+  {
+    "id": "job-005",
+    "title": "Backend Engineer",
+    "company": "Tamara",
+    "location": "Riyadh, SA (hybrid)",
+    "description": "Build REST and event-driven services in Python for a high-traffic consumer app. Own APIs end to end: design, implementation, tests, observability. PostgreSQL and Redis experience required.",
+    "skills": [
+      "python",
+      "fastapi",
+      "postgresql",
+      "redis",
+      "docker",
+      "aws"
+    ],
+    "posted_at": "2026-07-02",
+    "url": "https://jobs.example.com/005"
+  },
+  {
+    "id": "job-006",
+    "title": "Backend Engineer (Node.js)",
+    "company": "Lean Technologies",
+    "location": "Riyadh, SA",
+    "description": "Develop scalable services in Node.js and TypeScript for our payments platform. You will work on API design, message queues, and database performance in a fast-moving team.",
+    "skills": [
+      "node.js",
+      "typescript",
+      "postgresql",
+      "rabbitmq",
+      "docker",
+      "aws"
+    ],
+    "posted_at": "2026-08-14",
+    "url": "https://jobs.example.com/006"
+  },
+  {
+    "id": "job-007",
+    "title": "Full Stack Developer",
+    "company": "Foodics",
+    "location": "Riyadh, SA",
+    "description": "Deliver features across a React front end and a Node.js back end. Collaborate with product and design, write tests, and ship weekly. Familiarity with CI/CD pipelines is a plus.",
+    "skills": [
+      "javascript",
+      "react",
+      "node.js",
+      "postgresql",
+      "github actions"
+    ],
+    "posted_at": "2026-07-03",
+    "url": "https://jobs.example.com/007"
+  },
+  {
+    "id": "job-045",
+    "title": "Data Engineer",
+    "company": "Foodics",
+    "location": "Riyadh, SA",
+    "description": "",
+    "skills": [
+      "python",
+      "sql"
+    ],
+    "posted_at": "2026-08-12",
+    "url": "https://jobs.example.com/045"
+  },
+  {
+    "id": "job-008",
+    "title": "DevOps Engineer",
+    "company": "Nana",
+    "location": "Riyadh, SA (hybrid)",
+    "description": "Own our CI/CD pipelines, Kubernetes clusters, and infrastructure as code. Improve deployment reliability and observability across dozens of services.",
+    "skills": [
+      "kubernetes",
+      "terraform",
+      "github actions",
+      "aws",
+      "docker",
+      "python"
+    ],
+    "posted_at": "2026-08-02",
+    "url": "https://jobs.example.com/008"
+  },
+  {
+    "id": "job-009",
+    "title": "Data Analyst",
+    "company": "Salla",
+    "location": "Remote (MENA)",
+    "description": "Turn product and business data into decisions. Write SQL, build dashboards, and partner with teams to define metrics. Python for analysis is a plus.",
+    "skills": [
+      "sql",
+      "python",
+      "tableau",
+      "dbt",
+      "statistics"
+    ],
+    "posted_at": "2026-09-04",
+    "url": "https://jobs.example.com/009"
+  },
+  {
+    "id": "job-010",
+    "title": "Analytics Engineer",
+    "company": "Unifonic",
+    "location": "Jeddah, SA",
+    "description": "Model raw warehouse data into clean, tested, documented tables with dbt. Bridge data engineering and analytics, and own data quality for reporting.",
+    "skills": [
+      "sql",
+      "dbt",
+      "python",
+      "snowflake",
+      "data modeling"
+    ],
+    "posted_at": "2026-09-21",
+    "url": "https://jobs.example.com/010"
+  },
+  {
+    "id": "job-011",
+    "title": "MLOps Engineer",
+    "company": "SDAIA",
+    "location": "Riyadh, SA (hybrid)",
+    "description": "Build the platform that trains, deploys, and monitors ML models: pipelines, feature store, model registry, and GPU infrastructure orchestration.",
+    "skills": [
+      "python",
+      "kubernetes",
+      "mlflow",
+      "airflow",
+      "docker",
+      "gcp"
+    ],
+    "posted_at": "2026-07-19",
+    "url": "https://jobs.example.com/011"
+  },
+  {
+    "id": "job-012",
+    "title": "Data Platform Engineer",
+    "company": "Noon",
+    "location": "Riyadh, SA (hybrid)",
+    "description": "Design the storage, compute, and governance layers of our data platform. Delta Lake, Spark, and a strong opinion on data quality and lineage.",
+    "skills": [
+      "spark",
+      "delta lake",
+      "python",
+      "kafka",
+      "terraform",
+      "data governance"
+    ],
+    "posted_at": "2026-08-02",
+    "url": "https://jobs.example.com/012"
+  },
+  {
+    "id": "job-013",
+    "title": "NLP Engineer",
+    "company": "Jahez",
+    "location": "Jeddah, SA",
+    "description": "Build Arabic and English text pipelines: classification, entity extraction, and semantic search using transformer models and vector stores.",
+    "skills": [
+      "python",
+      "transformers",
+      "nlp",
+      "pytorch",
+      "vector databases",
+      "arabic nlp"
+    ],
+    "posted_at": "2026-07-18",
+    "url": "https://jobs.example.com/013"
+  },
+  {
+    "id": "job-014",
+    "title": "Software Engineer, Search",
+    "company": "Thmanyah",
+    "location": "Remote (MENA)",
+    "description": "Improve relevance and latency of product search. Work with inverted indexes, embeddings, and hybrid ranking. Elasticsearch or OpenSearch experience required.",
+    "skills": [
+      "python",
+      "elasticsearch",
+      "embeddings",
+      "ranking",
+      "java"
+    ],
+    "posted_at": "2026-07-10",
+    "url": "https://jobs.example.com/014"
+  },
+  {
+    "id": "job-046",
+    "company": "Nana",
+    "location": "Remote",
+    "description": "Build pipelines and dashboards for a fast-growing grocery delivery platform.",
+    "skills": [
+      "python",
+      "sql",
+      "dbt"
+    ],
+    "posted_at": "2026-09-02",
+    "url": "https://jobs.example.com/046"
+  },
+  {
+    "id": "job-015",
+    "title": "Junior Data Engineer",
+    "company": "Rewaa",
+    "location": "Remote",
+    "description": "Join a growing data team. You will write Python and SQL, maintain Airflow DAGs, and learn our lakehouse setup with mentorship from senior engineers.",
+    "skills": [
+      "python",
+      "sql",
+      "airflow",
+      "git"
+    ],
+    "posted_at": "2026-07-18",
+    "url": "https://jobs.example.com/015"
+  },
+  {
+    "id": "job-016",
+    "title": "Junior Backend Developer",
+    "company": "Lucidya",
+    "location": "Riyadh, SA",
+    "description": "Entry-level role building APIs in Python. Strong fundamentals, willingness to learn, and some experience with Git and SQL are what we are looking for.",
+    "skills": [
+      "python",
+      "sql",
+      "git",
+      "rest apis"
+    ],
+    "posted_at": "2026-09-10",
+    "url": "https://jobs.example.com/016"
+  },
+  {
+    "id": "job-017",
+    "title": "Cloud Engineer",
+    "company": "Tabby",
+    "location": "Riyadh, SA (hybrid)",
+    "description": "Design and operate AWS infrastructure for data and AI workloads. Cost optimization, networking, security groups, and IAM are daily concerns.",
+    "skills": [
+      "aws",
+      "terraform",
+      "networking",
+      "python",
+      "linux"
+    ],
+    "posted_at": "2026-09-06",
+    "url": "https://jobs.example.com/017"
+  },
+  {
+    "id": "job-018",
+    "title": "Streaming Data Engineer",
+    "company": "Hala",
+    "location": "Riyadh, SA",
+    "description": "Build real-time pipelines with Kafka and Flink. Handle late data, exactly-once semantics, and stateful stream processing for fraud detection.",
+    "skills": [
+      "kafka",
+      "flink",
+      "java",
+      "python",
+      "scala"
+    ],
+    "posted_at": "2026-09-19",
+    "url": "https://jobs.example.com/018"
+  },
+  {
+    "id": "job-019",
+    "title": "Research Engineer, LLMs",
+    "company": "Sary",
+    "location": "Dubai, AE",
+    "description": "Fine-tune and evaluate large language models for Arabic. Build data pipelines for pretraining corpora and run experiments on multi-GPU clusters.",
+    "skills": [
+      "python",
+      "pytorch",
+      "transformers",
+      "cuda",
+      "distributed training"
+    ],
+    "posted_at": "2026-07-12",
+    "url": "https://jobs.example.com/019"
+  },
+  {
+    "id": "job-020",
+    "title": "Product Engineer (AI)",
+    "company": "Ninja",
+    "location": "Riyadh, SA",
+    "description": "Prototype and ship AI features fast: chat assistants, document Q&A, agents. Full-stack comfort and pragmatism over perfection.",
+    "skills": [
+      "python",
+      "typescript",
+      "llm",
+      "react",
+      "fastapi"
+    ],
+    "posted_at": "2026-09-23",
+    "url": "https://jobs.example.com/020"
+  },
+  {
+    "id": "job-047",
+    "title": "Backend Engineer",
+    "location": "Jeddah, SA",
+    "description": "Python services for a logistics platform. FastAPI, PostgreSQL, Docker.",
+    "skills": [
+      "python",
+      "fastapi",
+      "postgresql"
+    ],
+    "posted_at": "2026-08-30",
+    "url": "https://jobs.example.com/047"
+  },
+  {
+    "id": "job-021",
+    "title": "Data Quality Engineer",
+    "company": "Aramco Digital",
+    "location": "Riyadh, SA",
+    "description": "Own data validation across our pipelines: schema checks, anomaly detection, quarantine flows, and quality dashboards. Great Expectations or similar experience valued.",
+    "skills": [
+      "python",
+      "sql",
+      "great expectations",
+      "airflow",
+      "data quality"
+    ],
+    "posted_at": "2026-09-02",
+    "url": "https://jobs.example.com/021"
+  },
+  {
+    "id": "job-022",
+    "title": "Solutions Architect, Data & AI",
+    "company": "stc",
+    "location": "Riyadh, SA (hybrid)",
+    "description": "Work with enterprise customers to design lakehouse, streaming, and RAG architectures. Strong communication and hands-on Python/SQL skills.",
+    "skills": [
+      "architecture",
+      "python",
+      "sql",
+      "spark",
+      "rag",
+      "presales"
+    ],
+    "posted_at": "2026-07-16",
+    "url": "https://jobs.example.com/022"
+  },
+  {
+    "id": "job-023",
+    "title": "Data Engineer",
+    "company": "Elm",
+    "location": "Dubai, AE",
+    "description": "Build and maintain batch and streaming pipelines that move data from product databases into our lakehouse. You will own ingestion, transformation, and data quality checks, and work with analysts to model tables for reporting.",
+    "skills": [
+      "python",
+      "sql",
+      "airflow",
+      "spark",
+      "delta lake",
+      "aws"
+    ],
+    "posted_at": "2026-09-14",
+    "url": "https://jobs.example.com/023"
+  },
+  {
+    "id": "job-024",
+    "title": "Senior Data Engineer",
+    "company": "Mozn",
+    "location": "Remote (MENA)",
+    "description": "Lead the design of our data platform: Kafka-based event streaming, Delta Lake storage, and dbt transformations. Mentor junior engineers and set standards for data quality, lineage, and observability.",
+    "skills": [
+      "python",
+      "kafka",
+      "spark",
+      "delta lake",
+      "dbt",
+      "kubernetes"
+    ],
+    "posted_at": "2026-08-15",
+    "url": "https://jobs.example.com/024"
+  },
+  {
+    "id": "job-025",
+    "title": "Machine Learning Engineer",
+    "company": "Tamara",
+    "location": "Riyadh, SA (hybrid)",
+    "description": "Take models from notebook to production. Build feature pipelines, training jobs, and low-latency inference services. Experience with model monitoring and retraining loops is essential.",
+    "skills": [
+      "python",
+      "pytorch",
+      "mlflow",
+      "docker",
+      "kubernetes",
+      "sql"
+    ],
+    "posted_at": "2026-08-12",
+    "url": "https://jobs.example.com/025"
+  },
+  {
+    "id": "job-026",
+    "title": "AI Engineer (LLM Applications)",
+    "company": "Lean Technologies",
+    "location": "Dammam, SA",
+    "description": "Design and ship LLM-powered features: retrieval-augmented generation over internal documents, evaluation harnesses, and prompt pipelines. You will work with vector databases and embedding models daily.",
+    "skills": [
+      "python",
+      "llm",
+      "rag",
+      "chromadb",
+      "fastapi",
+      "openai api"
+    ],
+    "posted_at": "2026-07-26",
+    "url": "https://jobs.example.com/026"
+  },
+  {
+    "id": "job-004",
+    "title": "AI Engineer (LLM Applications)",
+    "company": "Mozn",
+    "location": "Dammam, SA",
+    "description": "Design and ship LLM-powered features: retrieval-augmented generation over internal documents, evaluation harnesses, and prompt pipelines. You will work with vector databases and embedding models daily.",
+    "skills": [
+      "python",
+      "llm",
+      "rag",
+      "chromadb",
+      "fastapi",
+      "openai api"
+    ],
+    "posted_at": "2026-09-02",
+    "url": "https://jobs.example.com/004"
+  },
+  {
+    "id": "job-027",
+    "title": "Backend Engineer",
+    "company": "Foodics",
+    "location": "Jeddah, SA",
+    "description": "Build REST and event-driven services in Python for a high-traffic consumer app. Own APIs end to end: design, implementation, tests, observability. PostgreSQL and Redis experience required.",
+    "skills": [
+      "python",
+      "fastapi",
+      "postgresql",
+      "redis",
+      "docker",
+      "aws"
+    ],
+    "posted_at": "2026-09-25",
+    "url": "https://jobs.example.com/027"
+  },
+  {
+    "id": "job-028",
+    "title": "Backend Engineer (Node.js)",
+    "company": "Nana",
+    "location": "Jeddah, SA",
+    "description": "Develop scalable services in Node.js and TypeScript for our payments platform. You will work on API design, message queues, and database performance in a fast-moving team.",
+    "skills": [
+      "node.js",
+      "typescript",
+      "postgresql",
+      "rabbitmq",
+      "docker",
+      "aws"
+    ],
+    "posted_at": "2026-07-19",
+    "url": "https://jobs.example.com/028"
+  },
+  {
+    "id": "job-029",
+    "title": "Full Stack Developer",
+    "company": "Salla",
+    "location": "Dammam, SA",
+    "description": "Deliver features across a React front end and a Node.js back end. Collaborate with product and design, write tests, and ship weekly. Familiarity with CI/CD pipelines is a plus.",
+    "skills": [
+      "javascript",
+      "react",
+      "node.js",
+      "postgresql",
+      "github actions"
+    ],
+    "posted_at": "2026-09-16",
+    "url": "https://jobs.example.com/029"
+  },
+  {
+    "id": "job-030",
+    "title": "DevOps Engineer",
+    "company": "Unifonic",
+    "location": "Dammam, SA",
+    "description": "Own our CI/CD pipelines, Kubernetes clusters, and infrastructure as code. Improve deployment reliability and observability across dozens of services.",
+    "skills": [
+      "kubernetes",
+      "terraform",
+      "github actions",
+      "aws",
+      "docker",
+      "python"
+    ],
+    "posted_at": "2026-09-15",
+    "url": "https://jobs.example.com/030"
+  },
+  {
+    "id": "job-031",
+    "title": "Data Analyst",
+    "company": "SDAIA",
+    "location": "Dammam, SA",
+    "description": "Turn product and business data into decisions. Write SQL, build dashboards, and partner with teams to define metrics. Python for analysis is a plus.",
+    "skills": [
+      "sql",
+      "python",
+      "tableau",
+      "dbt",
+      "statistics"
+    ],
+    "posted_at": "2026-09-03",
+    "url": "https://jobs.example.com/031"
+  },
+  {
+    "id": "job-032",
+    "title": "Analytics Engineer",
+    "company": "Noon",
+    "location": "Riyadh, SA",
+    "description": "Model raw warehouse data into clean, tested, documented tables with dbt. Bridge data engineering and analytics, and own data quality for reporting.",
+    "skills": [
+      "sql",
+      "dbt",
+      "python",
+      "snowflake",
+      "data modeling"
+    ],
+    "posted_at": "2026-09-14",
+    "url": "https://jobs.example.com/032"
+  },
+  {
+    "id": "job-048",
+    "title": "MLOps Engineer",
+    "company": "SDAIA",
+    "location": "Riyadh, SA (hybrid)",
+    "description": "Build the platform that trains, deploys, and monitors ML models: pipelines, feature store, model registry, and GPU infrastructure orchestration.",
+    "skills": [
+      "python",
+      "kubernetes",
+      "mlflow",
+      "airflow",
+      "docker",
+      "gcp"
+    ],
+    "posted_at": "2026-07-19",
+    "url": "https://jobs.example.com/048"
+  },
+  {
+    "id": "job-033",
+    "title": "MLOps Engineer",
+    "company": "Jahez",
+    "location": "Jeddah, SA",
+    "description": "Build the platform that trains, deploys, and monitors ML models: pipelines, feature store, model registry, and GPU infrastructure orchestration.",
+    "skills": [
+      "python",
+      "kubernetes",
+      "mlflow",
+      "airflow",
+      "docker",
+      "gcp"
+    ],
+    "posted_at": "2026-08-05",
+    "url": "https://jobs.example.com/033"
+  },
+  {
+    "id": "job-034",
+    "title": "Data Platform Engineer",
+    "company": "Thmanyah",
+    "location": "Remote",
+    "description": "Design the storage, compute, and governance layers of our data platform. Delta Lake, Spark, and a strong opinion on data quality and lineage.",
+    "skills": [
+      "spark",
+      "delta lake",
+      "python",
+      "kafka",
+      "terraform",
+      "data governance"
+    ],
+    "posted_at": "2026-08-02",
+    "url": "https://jobs.example.com/034"
+  },
+  {
+    "id": "job-035",
+    "title": "NLP Engineer",
+    "company": "Rewaa",
+    "location": "Dubai, AE",
+    "description": "Build Arabic and English text pipelines: classification, entity extraction, and semantic search using transformer models and vector stores.",
+    "skills": [
+      "python",
+      "transformers",
+      "nlp",
+      "pytorch",
+      "vector databases",
+      "arabic nlp"
+    ],
+    "posted_at": "2026-07-25",
+    "url": "https://jobs.example.com/035"
+  },
+  {
+    "id": "job-036",
+    "title": "Software Engineer, Search",
+    "company": "Lucidya",
+    "location": "Riyadh, SA (hybrid)",
+    "description": "Improve relevance and latency of product search. Work with inverted indexes, embeddings, and hybrid ranking. Elasticsearch or OpenSearch experience required.",
+    "skills": [
+      "python",
+      "elasticsearch",
+      "embeddings",
+      "ranking",
+      "java"
+    ],
+    "posted_at": "2026-09-26",
+    "url": "https://jobs.example.com/036"
+  },
+  {
+    "id": "job-037",
+    "title": "Junior Data Engineer",
+    "company": "Tabby",
+    "location": "Remote (MENA)",
+    "description": "Join a growing data team. You will write Python and SQL, maintain Airflow DAGs, and learn our lakehouse setup with mentorship from senior engineers.",
+    "skills": [
+      "python",
+      "sql",
+      "airflow",
+      "git"
+    ],
+    "posted_at": "2026-08-11",
+    "url": "https://jobs.example.com/037"
+  },
+  {
+    "id": "job-038",
+    "title": "Junior Backend Developer",
+    "company": "Hala",
+    "location": "Dubai, AE",
+    "description": "Entry-level role building APIs in Python. Strong fundamentals, willingness to learn, and some experience with Git and SQL are what we are looking for.",
+    "skills": [
+      "python",
+      "sql",
+      "git",
+      "rest apis"
+    ],
+    "posted_at": "2026-08-20",
+    "url": "https://jobs.example.com/038"
+  },
+  {
+    "id": "job-049",
+    "title": "AI Engineer",
+    "company": "Elm",
+    "location": "Riyadh, SA",
+    "description": "Build RAG systems over government document archives with strict data governance requirements.",
+    "skills": [
+      "python",
+      "rag",
+      "chromadb",
+      "fastapi"
+    ],
+    "posted_at": "2027-01-15",
+    "url": "https://jobs.example.com/049"
+  },
+  {
+    "id": "job-039",
+    "title": "Cloud Engineer",
+    "company": "Sary",
+    "location": "Remote",
+    "description": "Design and operate AWS infrastructure for data and AI workloads. Cost optimization, networking, security groups, and IAM are daily concerns.",
+    "skills": [
+      "aws",
+      "terraform",
+      "networking",
+      "python",
+      "linux"
+    ],
+    "posted_at": "2026-09-26",
+    "url": "https://jobs.example.com/039"
+  },
+  {
+    "id": "job-040",
+    "title": "Streaming Data Engineer",
+    "company": "Ninja",
+    "location": "Remote",
+    "description": "Build real-time pipelines with Kafka and Flink. Handle late data, exactly-once semantics, and stateful stream processing for fraud detection.",
+    "skills": [
+      "kafka",
+      "flink",
+      "java",
+      "python",
+      "scala"
+    ],
+    "posted_at": "2026-07-27",
+    "url": "https://jobs.example.com/040"
+  },
+  {
+    "id": "job-041",
+    "title": "Research Engineer, LLMs",
+    "company": "Aramco Digital",
+    "location": "Riyadh, SA",
+    "description": "Fine-tune and evaluate large language models for Arabic. Build data pipelines for pretraining corpora and run experiments on multi-GPU clusters.",
+    "skills": [
+      "python",
+      "pytorch",
+      "transformers",
+      "cuda",
+      "distributed training"
+    ],
+    "posted_at": "2026-08-16",
+    "url": "https://jobs.example.com/041"
+  },
+  {
+    "id": "job-042",
+    "title": "Product Engineer (AI)",
+    "company": "stc",
+    "location": "Dubai, AE",
+    "description": "Prototype and ship AI features fast: chat assistants, document Q&A, agents. Full-stack comfort and pragmatism over perfection.",
+    "skills": [
+      "python",
+      "typescript",
+      "llm",
+      "react",
+      "fastapi"
+    ],
+    "posted_at": "2026-09-03",
+    "url": "https://jobs.example.com/042"
+  },
+  {
+    "id": "job-043",
+    "title": "Data Quality Engineer",
+    "company": "Elm",
+    "location": "Riyadh, SA",
+    "description": "Own data validation across our pipelines: schema checks, anomaly detection, quarantine flows, and quality dashboards. Great Expectations or similar experience valued.",
+    "skills": [
+      "python",
+      "sql",
+      "great expectations",
+      "airflow",
+      "data quality"
+    ],
+    "posted_at": "2026-09-23",
+    "url": "https://jobs.example.com/043"
+  },
+  {
+    "id": "job-044",
+    "title": "Solutions Architect, Data & AI",
+    "company": "Mozn",
+    "location": "Dammam, SA",
+    "description": "Work with enterprise customers to design lakehouse, streaming, and RAG architectures. Strong communication and hands-on Python/SQL skills.",
+    "skills": [
+      "architecture",
+      "python",
+      "sql",
+      "spark",
+      "rag",
+      "presales"
+    ],
+    "posted_at": "2026-09-19",
+    "url": "https://jobs.example.com/044"
+  }
+]
