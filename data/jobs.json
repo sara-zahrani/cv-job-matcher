@@ -176,7 +176,7 @@
       "snowflake",
       "data modeling"
     ],
-    "posted_at": "2026-09-21",
+    "posted_at": "2026-08-21",
     "url": "https://jobs.example.com/010"
   },
   {
@@ -318,7 +318,7 @@
       "python",
       "scala"
     ],
-    "posted_at": "2026-09-19",
+    "posted_at": "2026-08-19",
     "url": "https://jobs.example.com/018"
   },
   {
@@ -350,7 +350,7 @@
       "react",
       "fastapi"
     ],
-    "posted_at": "2026-09-23",
+    "posted_at": "2026-08-23",
     "url": "https://jobs.example.com/020"
   },
   {
@@ -498,7 +498,7 @@
       "docker",
       "aws"
     ],
-    "posted_at": "2026-09-25",
+    "posted_at": "2026-08-25",
     "url": "https://jobs.example.com/027"
   },
   {
@@ -531,7 +531,7 @@
       "postgresql",
       "github actions"
     ],
-    "posted_at": "2026-09-16",
+    "posted_at": "2026-08-16",
     "url": "https://jobs.example.com/029"
   },
   {
@@ -664,7 +664,7 @@
       "ranking",
       "java"
     ],
-    "posted_at": "2026-09-26",
+    "posted_at": "2026-08-26",
     "url": "https://jobs.example.com/036"
   },
   {
@@ -725,7 +725,7 @@
       "python",
       "linux"
     ],
-    "posted_at": "2026-09-26",
+    "posted_at": "2026-08-26",
     "url": "https://jobs.example.com/039"
   },
   {
@@ -789,7 +789,7 @@
       "airflow",
       "data quality"
     ],
-    "posted_at": "2026-09-23",
+    "posted_at": "2026-08-23",
     "url": "https://jobs.example.com/043"
   },
   {
@@ -806,7 +806,7 @@
       "rag",
       "presales"
     ],
-    "posted_at": "2026-09-19",
+    "posted_at": "2026-08-19",
     "url": "https://jobs.example.com/044"
   }
 ]

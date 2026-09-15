@@ -14,6 +14,9 @@ from app.ingestion.broker import Broker
 
 TOPIC = "jobs_raw"
 
+# Published once, after the last job, so consumers know the stream is over.
+END_OF_STREAM = None
+
 
 def load_jobs(path: Path) -> list[dict]:
     """Read the JSON file and return the list of postings as dictionaries."""
@@ -26,6 +29,7 @@ async def produce(broker: Broker, jobs: list[dict]) -> int:
     """Publish every posting to the topic. Returns how many were published."""
     for job in jobs:
         await broker.publish(TOPIC, job)
+    await broker.publish(TOPIC, END_OF_STREAM)
     return len(jobs)
 
 
