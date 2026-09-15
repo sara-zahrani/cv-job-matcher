@@ -1,0 +1,10 @@
+[project]
+name = "cv-job-matcher"
+version = "0.1.0"
+description = "RAG application that matches a CV against ingested job postings"
+readme = "README.md"
+authors = [
+    { name = "Sara Alzahrani", email = "sara.zahrani32@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = []
