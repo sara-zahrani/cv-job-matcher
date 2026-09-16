@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV → Job Matcher</title>
+<style>
+  :root { --ink: #1c1c1c; --muted: #6b6b6b; --line: #e3e3e3; --accent: #1f5f3f; --weak: #9b5a1a; --bg: #fafaf8; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.5 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: var(--ink); background: var(--bg); }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 20px 80px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 32px; }
+  form { display: grid; gap: 14px; padding: 20px; background: #fff; border: 1px solid var(--line); border-radius: 10px; }
+  label { display: grid; gap: 6px; font-size: 14px; color: var(--muted); }
+  input[type=text], input[type=number] { padding: 9px 10px; border: 1px solid var(--line); border-radius: 6px; font: inherit; }
+  .row { display: grid; grid-template-columns: 1fr 120px; gap: 14px; }
+  button { padding: 11px; border: 0; border-radius: 6px; background: var(--accent); color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+  button:disabled { opacity: .5; cursor: wait; }
+  #status { margin: 18px 0 0; color: var(--muted); font-size: 14px; min-height: 22px; }
+  #results { margin-top: 28px; display: grid; gap: 12px; }
+  .notice { padding: 12px 14px; border-radius: 8px; background: #fff4e5; color: var(--weak); border: 1px solid #f0d9b5; }
+  .job { display: grid; grid-template-columns: 64px 1fr; gap: 14px; padding: 14px 16px; background: #fff; border: 1px solid var(--line); border-radius: 10px; }
+  .score { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--accent); }
+  .title { font-weight: 600; }
+  .meta { color: var(--muted); font-size: 14px; }
+  .assessment { margin-top: 8px; padding: 18px 20px; background: #fff; border: 1px solid var(--line); border-radius: 10px; white-space: pre-wrap; font-size: 15px; }
+  .assessment h2 { font-size: 14px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin: 0 0 10px; }
+  .steps { padding: 14px 18px; background: #f3f5f2; border: 1px solid var(--line); border-radius: 10px; font-size: 14px; }
+  .steps h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin: 0 0 8px; }
+  .steps ol { margin: 0; padding-left: 20px; }
+  .steps li { margin: 3px 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>CV → Job Matcher</h1>
+  <p class="sub">Upload a CV. Get the best-fitting postings from the indexed pool, with an explanation of each.</p>
+
+  <form id="form">
+    <label>CV (PDF or .txt)
+      <input type="file" name="cv" accept=".pdf,.txt" required>
+    </label>
+    <div class="row">
+      <label>Candidate name, to strip it before embedding (optional)
+        <input type="text" name="name" placeholder="Full name as written on the CV">
+      </label>
+      <label>Matches
+        <input type="number" name="top_k" value="5" min="1" max="20">
+      </label>
+    </div>
+    <button type="submit" id="go">Find matches</button>
+  </form>
+
+  <p id="status"></p>
+  <div id="results"></div>
+</main>
+
+<script>
+  const form = document.getElementById('form');
+  const status = document.getElementById('status');
+  const results = document.getElementById('results');
+  const go = document.getElementById('go');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    results.innerHTML = '';
+    go.disabled = true;
+
+    const t0 = performance.now();
+    const tick = setInterval(() => {
+      status.textContent = `Retrieving and asking the model… ${((performance.now() - t0) / 1000).toFixed(0)}s`;
+    }, 500);
+
+    try {
+      const res = await fetch('/match', { method: 'POST', body: new FormData(form) });
+      clearInterval(tick);
+      let data;
+      try { data = await res.json(); } catch { data = {}; }
+      if (!res.ok) {
+        // FastAPI puts the reason in `detail`. Show it verbatim; a vague
+        // message costs more time than an ugly one.
+        status.textContent = `Error ${res.status}: ${data.detail || res.statusText}`;
+        return;
+      }
+      status.textContent = `Done in ${((performance.now() - t0) / 1000).toFixed(1)}s.`;
+      render(data);
+    } catch (err) {
+      clearInterval(tick);
+      // Only a network failure lands here now, so this message is true.
+      status.textContent = `Could not reach the server: ${err.message}`;
+    } finally {
+      go.disabled = false;
+    }
+  });
+
+  function render(data) {
+    results.insertAdjacentHTML('beforeend',
+      `<div class="steps"><h2>What happened</h2><ol>${data.steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol></div>`);
+    if (!data.strong_match) {
+      results.insertAdjacentHTML('beforeend',
+        `<div class="notice">No strong matches: the best score is below ${data.min_score}. Nearest postings shown for reference; no assessment was generated.</div>`);
+    }
+    for (const m of data.matches) {
+      results.insertAdjacentHTML('beforeend', `
+        <div class="job">
+          <div class="score">${m.score.toFixed(3)}</div>
+          <div>
+            <div class="title">${esc(m.title)}</div>
+            <div class="meta">${esc(m.company)} · ${esc(m.location)} · ${esc(m.job_id)}</div>
+          </div>
+        </div>`);
+    }
+    if (data.assessment) {
+      results.insertAdjacentHTML('beforeend',
+        `<div class="assessment"><h2>Assessment</h2>${esc(data.assessment)}</div>`);
+    }
+  }
+
+  function esc(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+</script>
+</body>
+</html>

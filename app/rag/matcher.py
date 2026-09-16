@@ -40,22 +40,36 @@ def load_cv(path: Path, name: str | None = None) -> str:
 
 def match(cv_text: str, store: VectorStore, llm: LLMClient, top_k: int = 5) -> dict:
     """The full RAG query: retrieve, then generate. If nothing retrieved is a
-    real match, skip the LLM: there is nothing worth explaining."""
+    real match, skip the LLM: there is nothing worth explaining.
+
+    Returns the matches, the assessment, and a `steps` log of what happened,
+    so a caller (terminal or UI) can show the pipeline, not just the answer."""
+    steps: list[str] = []
+
+    def step(text: str) -> None:
+        steps.append(text)
+        print(f"  {text}", file=sys.stderr)
+
+    step(f"CV text: {len(cv_text)} characters, personal identifiers stripped")
+    step(f"Embedded the CV with {store.embedder.model}")
+
     t0 = time.perf_counter()
     matches = retrieve(cv_text, store, top_k=top_k)
     strong = has_strong_match(matches)
-    print(f"[retrieve] {len(matches)} jobs, best score {matches[0]['score']:.3f}, "
-          f"{time.perf_counter() - t0:.1f}s", file=sys.stderr)
+    step(f"Searched {store.count()} job vectors by cosine similarity, kept the top {len(matches)} "
+         f"({time.perf_counter() - t0:.1f}s)")
+    step(f"Best score {matches[0]['score']:.3f} vs threshold {MIN_SCORE}: "
+         + ("strong match, continuing to the model" if strong else "no strong match, model skipped"))
 
     assessment = None
     if strong:
         prompt = build_match_prompt(cv_text, matches)
-        print(f"[generate] asking {llm.model} ({len(prompt)} chars of prompt)...", file=sys.stderr)
+        step(f"Built a {len(prompt)}-character prompt: CV + the {len(matches)} retrieved postings + instructions")
         t0 = time.perf_counter()
         assessment = llm.generate(SYSTEM, prompt)
-        print(f"[generate] done in {time.perf_counter() - t0:.1f}s", file=sys.stderr)
+        step(f"{llm.model} wrote the assessment ({time.perf_counter() - t0:.1f}s)")
 
-    return {"strong_match": strong, "matches": matches, "assessment": assessment}
+    return {"strong_match": strong, "matches": matches, "assessment": assessment, "steps": steps}
 
 
 if __name__ == "__main__":

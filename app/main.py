@@ -13,6 +13,8 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi.responses import FileResponse
+from openai import APIStatusError, APITimeoutError
 from pydantic import BaseModel
 
 from app.config import settings
@@ -61,9 +63,16 @@ class MatchResponse(BaseModel):
     min_score: float
     matches: list[JobMatch]
     assessment: str | None
+    steps: list[str]
 
 
 # --- endpoints ------------------------------------------------------------
+
+@app.get("/", include_in_schema=False)
+def index() -> FileResponse:
+    """The one-page UI. Plain HTML that calls /match; no build step."""
+    return FileResponse(Path(__file__).parent / "static" / "index.html")
+
 
 @app.get("/health")
 def health() -> dict:
@@ -89,10 +98,20 @@ async def match_cv(
         except ValueError as exc:  # e.g. a scanned PDF with no text layer
             raise HTTPException(status_code=400, detail=str(exc)) from exc
 
-    result = match(cv_text, resources["store"], resources["llm"], top_k=top_k)
+    try:
+        result = match(cv_text, resources["store"], resources["llm"], top_k=top_k)
+    except APIStatusError as exc:
+        # The model provider refused (rate limit, bad key, model down).
+        # Surface its message; a generic 500 hides the one thing the user needs.
+        detail = exc.body.get("message") if isinstance(exc.body, dict) else str(exc)
+        raise HTTPException(status_code=503, detail=f"Model provider error: {detail}") from exc
+    except APITimeoutError as exc:
+        raise HTTPException(status_code=504, detail="The model did not answer in time. Try again.") from exc
+
     return MatchResponse(
         strong_match=result["strong_match"],
         min_score=MIN_SCORE,
         matches=[JobMatch(**m) for m in result["matches"]],
         assessment=result["assessment"],
+        steps=result["steps"],
     )
