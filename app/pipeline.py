@@ -58,18 +58,18 @@ async def run(source: Path = SOURCE_PATH) -> dict:
     store.close()
 
     return {
-        "source": len(jobs),
-        "stored": len(clean),
-        "skipped": len(skipped),
-        "rejected": len(rejected),
-        "table_version": version,
-        "quarantine_file": str(quarantine_file) if quarantine_file else None,
-        "embedded": embedded,
-        "indexed_total": indexed,
+        "jobs read from jobs.json": len(jobs),
+        "jobs passed the gate, written to delta table": len(clean),
+        "jobs skipped, already in delta table": len(skipped),
+        "jobs rejected, written to quarantine": len(rejected),
+        "delta table version after write (None = no write)": version,
+        "quarantine file": str(quarantine_file) if quarantine_file else None,
+        "jobs embedded into vector store this run": embedded,
+        "vectors in store, total": indexed,
     }
 
 
 if __name__ == "__main__":
     summary = asyncio.run(run())
     for key, value in summary.items():
-        print(f"{key:<16} {value}")
+        print(f"{key:<52} {value}")
