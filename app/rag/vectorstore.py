@@ -92,6 +92,16 @@ class VectorStore:
         )
         return len(new)
 
+    def search(self, text: str, top_k: int = 5) -> list[dict]:
+        """Embed the query text and return the top_k nearest jobs, best first.
+        Score is cosine similarity as Qdrant reports it: higher is closer."""
+        vector = self.embedder.embed([text])[0]
+        result = self.client.query_points(COLLECTION, query=vector, limit=top_k)
+        return [
+            {"score": round(p.score, 4), **p.payload}
+            for p in result.points
+        ]
+
     def count(self) -> int:
         return self.client.count(COLLECTION).count
 
