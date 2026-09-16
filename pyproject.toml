@@ -9,10 +9,12 @@ authors = [
 requires-python = ">=3.13"
 dependencies = [
     "deltalake>=1.6.3",
+    "fastapi[standard]>=0.141.1",
     "openai>=3.14.1",
     "pandas>=3.0.5",
     "pyarrow>=25.0.1",
     "pypdf",
     "python-dotenv>=1.2.3",
+    "python-multipart>=0.0.32",
     "qdrant-client>=1.19.0",
 ]
