@@ -22,6 +22,14 @@ class Settings:
         # os.getenv returns None if the variable is missing. The "" default
         # means we always hold a string, which makes the checks below simpler.
         self.openrouter_api_key: str = os.getenv("OPENROUTER_API_KEY", "")
+        self.openrouter_base_url: str = "https://openrouter.ai/api/v1"
+
+        # Defaults are free-tier models verified against OpenRouter on 2026-09-16.
+        # Override in .env if they change. The embed model must never change
+        # after jobs are indexed without re-indexing: vectors from two models
+        # live in different spaces and cannot be compared.
+        self.embed_model: str = os.getenv("OPENROUTER_EMBED_MODEL") or "nvidia/nemotron-3-embed-1b:free"
+        self.chat_model: str = os.getenv("OPENROUTER_CHAT_MODEL") or "nvidia/nemotron-3.5-lightning:free"
 
     def require_api_key(self) -> None:
         """Fail loudly at startup rather than quietly on the first API call."""
