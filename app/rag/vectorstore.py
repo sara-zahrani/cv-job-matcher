@@ -80,11 +80,15 @@ class VectorStore:
                 PointStruct(
                     id=point_id(j["id"]),
                     vector=v,
+                    # The full posting rides along in the payload so the LLM
+                    # step can read it without a second trip to the table.
                     payload={
                         "job_id": j["id"],
                         "title": j["title"],
                         "company": j["company"],
                         "location": j["location"],
+                        "skills": ", ".join(list(j["skills"])) if j.get("skills") is not None else "",
+                        "description": j["description"],
                     },
                 )
                 for j, v in zip(new, vectors)

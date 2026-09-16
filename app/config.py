@@ -29,7 +29,10 @@ class Settings:
         # after jobs are indexed without re-indexing: vectors from two models
         # live in different spaces and cannot be compared.
         self.embed_model: str = os.getenv("OPENROUTER_EMBED_MODEL") or "nvidia/nemotron-3-embed-1b:free"
-        self.chat_model: str = os.getenv("OPENROUTER_CHAT_MODEL") or "nvidia/nemotron-3.5-lightning:free"
+        # Free models queue unpredictably: on 2026-09-16 nemotron-3.5-lightning took
+        # 37s for one word while nemotron-3-super answered in 1s. Override in .env
+        # if the default is slow on the day.
+        self.chat_model: str = os.getenv("OPENROUTER_CHAT_MODEL") or "nvidia/nemotron-3-super-120b-a12b:free"
 
     def require_api_key(self) -> None:
         """Fail loudly at startup rather than quietly on the first API call."""
