@@ -1,0 +1,14 @@
+PROFILE
+Former high school mathematics teacher transitioning into data. Completed a nine-month data analytics bootcamp in 2025 and have since done freelance dashboard work for two small businesses. Patient, structured, good at explaining things.
+
+EXPERIENCE
+Freelance Data Analyst. 2025 to now.
+Built sales and inventory dashboards in Power BI for a furniture retailer, connecting to their Excel exports and later to their Shopify data. Cleaned three years of messy customer records in Python.
+Mathematics Teacher, secondary school, Jeddah. 2016 to 2025.
+Taught algebra and statistics to grades 10 to 12. Ran the school's coding club for three years. Department head for two years, managing a team of five teachers and the annual budget.
+
+SKILLS
+SQL, Python (pandas, matplotlib), Power BI, Excel (advanced), statistics, teaching and presenting.
+
+EDUCATION
+Data Analytics Bootcamp, 2025. BSc Mathematics, 2016.

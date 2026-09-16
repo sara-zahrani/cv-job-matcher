@@ -1,0 +1,14 @@
+Dr. [name], PhD in Applied Statistics (2022). Postdoctoral researcher, then two years in industry.
+
+Research
+Bayesian hierarchical models for epidemiological surveillance. Four peer-reviewed papers, one in a top statistics journal. Reviewer for two journals.
+
+Industry
+Data Scientist, health-tech startup. 2024 to now.
+Built the risk model behind the company's early-warning product using gradient boosting and survival analysis. Wrote the feature pipeline in Python and SQL. Presented model validation to a hospital ethics board. Some exposure to deploying models with the engineering team, mostly through handover docs.
+
+Skills
+R, Python (numpy, pandas, scikit-learn, PyMC), SQL, Stan, statistical modelling, causal inference, scientific writing.
+
+Teaching
+Taught undergraduate probability for three years.

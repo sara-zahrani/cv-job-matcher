@@ -1,0 +1,16 @@
+SUMMARY
+Backend engineer with 6 years building web services. I like small teams, clear ownership, and boring technology that works. Most of my work has been in Python and Go.
+
+EXPERIENCE
+Senior Software Engineer, fintech, Riyadh. 2022 to now.
+Own the payments and ledger services. Moved a monolith's billing module into its own service with zero downtime. Cut p99 latency on the transfers endpoint from 900ms to 120ms by fixing N+1 queries and adding a read replica. On-call rotation, wrote most of our runbooks.
+Software Engineer, e-commerce marketplace. 2019 to 2022.
+Built the order management API in Django. Added an event bus on RabbitMQ so inventory and notifications could react to order events. Introduced integration tests and a staging environment.
+Junior Developer, agency. 2018 to 2019.
+Laravel and WordPress client sites.
+
+SKILLS
+Python, Go, Django, FastAPI, PostgreSQL, Redis, RabbitMQ, Docker, AWS (ECS, RDS, SQS), Terraform, Grafana.
+
+EDUCATION
+BSc Computer Science, King Saud University, 2018.

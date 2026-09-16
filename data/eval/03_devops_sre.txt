@@ -1,0 +1,10 @@
+Site Reliability Engineer. Seven years keeping systems up. Currently at a telecom, before that a bank.
+
+What I do
+Run Kubernetes clusters (about 40 nodes across three environments) and the CI/CD that deploys to them. Migrated the bank's Jenkins pipelines to GitHub Actions and cut build times in half. Wrote the Terraform for our AWS and on-prem VMware footprint. Built the alerting and dashboards in Prometheus and Grafana. Led incident reviews. Reduced monthly pages by 60 percent by fixing the noisiest alerts and adding auto-remediation for the common ones.
+
+Tools
+Kubernetes, Helm, Terraform, Ansible, GitHub Actions, Jenkins, AWS, Prometheus, Grafana, Linux, Bash, some Python and Go.
+
+Certifications
+CKA, AWS Solutions Architect Associate.

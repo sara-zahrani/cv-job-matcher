@@ -1,0 +1,15 @@
+PROFILE
+Product manager with 8 years in consumer apps, most recently in food delivery. Started as a UX designer. I care about metrics, talking to users, and shipping.
+
+EXPERIENCE
+Senior Product Manager, food delivery app. 2021 to now.
+Own the ordering funnel. Ran experiments that lifted checkout conversion by 11 percent. Launched group ordering and scheduled delivery. Work daily with two engineering squads, data analysts, and design. Write PRDs, define metrics, prioritise the roadmap.
+Product Manager, ride-hailing. 2019 to 2021.
+Driver-side app. Launched in-app earnings dashboard and a new onboarding flow that reduced drop-off by a third.
+UX Designer, agency. 2017 to 2019.
+
+SKILLS
+Product discovery, experimentation and A/B testing, SQL for analysis, Figma, Amplitude, Jira, roadmap planning, stakeholder management. Some Python from a data course.
+
+EDUCATION
+BA Graphic Design, 2017.
