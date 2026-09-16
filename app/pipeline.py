@@ -14,7 +14,9 @@ from app.ingestion.broker import Broker
 from app.ingestion.producer import TOPIC, load_jobs, produce
 from app.quality.consumer import validate_stream
 from app.quality.gate import QualityGate
-from app.storage.lakehouse import existing_ids, write_jobs
+from app.rag.embeddings import Embedder
+from app.rag.vectorstore import VectorStore
+from app.storage.lakehouse import existing_ids, read_jobs, write_jobs
 
 SOURCE_PATH = Path("data/jobs.json")
 QUARANTINE_DIR = Path("data/quarantine")
@@ -48,6 +50,13 @@ async def run(source: Path = SOURCE_PATH) -> dict:
     version = write_jobs(clean) if clean else None
     quarantine_file = write_quarantine(rejected)
 
+    # Index from the table, not from the clean list: the table is the truth,
+    # and this also picks up anything stored earlier but not yet embedded.
+    store = VectorStore(Embedder())
+    embedded = store.add_jobs(read_jobs().to_dict(orient="records"))
+    indexed = store.count()
+    store.close()
+
     return {
         "source": len(jobs),
         "stored": len(clean),
@@ -55,6 +64,8 @@ async def run(source: Path = SOURCE_PATH) -> dict:
         "rejected": len(rejected),
         "table_version": version,
         "quarantine_file": str(quarantine_file) if quarantine_file else None,
+        "embedded": embedded,
+        "indexed_total": indexed,
     }
 
 
